@@ -5,64 +5,66 @@
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
     <title>Dashboard</title>
     <style>
-        :root {
-            --primaria: red;
-            --segunda: white;
-            --terceira: tomato;
-            --quarta: rgb(195, 13, 13);
-            --quinta: rgb(255, 115, 0);
-            --sexta: #6b6767;
-        }
-        
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: var(--segunda);
-        }
-        
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-        }
-        
-        th {
-            background-color:#FF0000;
-            color: var(--segunda);
-        }
-        
-        td {
-            background-color: var(--quinta);
-        }
-        
-        h1 {
-            text-align: center;
-            color: var(--primaria);
-        }
-        
-        nav {
-            background-color: #fff;
-            padding: 10px;
-        }
-        
-        nav a {
-            color: #FF0000;
-            font-weight: bold;
-            text-decoration: none;
-            margin-right: 10px;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
+       :root {
+        --primary-color: red;
+        --secondary-color: white;
+        --accent-color: tomato;
+        --dark-color: rgb(195, 13, 13);
+        --highlight-color: rgb(255, 115, 0);
+        --gray-color: #6b6767;
+    }
 
-        nav a:hover {
-            background-color: #FF0000;
-            color: #fff;
-        }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: var(--secondary-color);
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
+    td {
+        background-color: var(--dark-color);
+        color: var(--secondary-color);
+    }
+
+    h1 {
+        text-align: center;
+        color: var(--primary-color);
+    }
+
+    nav {
+        background-color: var(--secondary-color);
+        padding: 10px;
+    }
+
+    nav a {
+        color: var(--primary-color);
+        font-weight: bold;
+        text-decoration: none;
+        margin-right: 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    nav a:hover {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
     </style>
 </head>
 <body>
@@ -87,39 +89,59 @@
     </table>
 
     <script>
-        // Função para fazer a requisição AJAX e preencher a tabela
-        function preencherTabela() {
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    var response = JSON.parse(this.responseText);
-                    if (response.success) {
-                        var doadores = response.doadores;
-                        var tableBody = document.getElementById("doador-table").getElementsByTagName("tbody")[0];
-                        for (var i = 0; i < doadores.length; i++) {
-                            var row = tableBody.insertRow(i);
-                            var cell1 = row.insertCell(0);
-                            var cell2 = row.insertCell(1);
-                            var cell3 = row.insertCell(2);
-                            var cell4 = row.insertCell(3);
-                            var cell5 = row.insertCell(4);
-                            cell1.innerHTML = doadores[i].nome;
-                            cell2.innerHTML = doadores[i].celular;
-                            cell3.innerHTML = doadores[i].cidade;
-                            cell4.innerHTML = doadores[i].nascimento;
-                            cell5.innerHTML = doadores[i].apto;
-                        }
-                    } else {
-                        console.log(response.message);
-                    }
+        // Criação do objeto XMLHttpRequest
+        var xhr = new XMLHttpRequest();
+    
+        // Configuração da solicitação GET
+        xhr.open('GET', '../../api/v2/dashboard.php', true);
+    
+        // Função de callback para tratar a resposta
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                
+                if (response.success) {
+                    var doadores = response.doadores;
+    
+                    // Preencher a tabela com os dados dos doadores
+                    var tbody = document.querySelector('#doador-table tbody');
+    
+                    doadores.forEach(function(doador) {
+                        var row = document.createElement('tr');
+    
+                        var nomeCell = document.createElement('td');
+                        nomeCell.textContent = doador.nome;
+                        row.appendChild(nomeCell);
+    
+                        var celularCell = document.createElement('td');
+                        celularCell.textContent = doador.celular;
+                        row.appendChild(celularCell);
+    
+                        var cidadeCell = document.createElement('td');
+                        cidadeCell.textContent = doador.cidade;
+                        row.appendChild(cidadeCell);
+    
+                        var dataCell = document.createElement('td');
+                        dataCell.textContent = doador.data;
+                        row.appendChild(dataCell);
+    
+                        var aptoCell = document.createElement('td');
+                        aptoCell.textContent = doador.apto;
+                        row.appendChild(aptoCell);
+    
+                        tbody.appendChild(row);
+                    });
+                } else {
+                    alert(response.message);
                 }
-            };
-            xhttp.open("GET", "../../api/v2/login.php", true);
-            xhttp.send();
-        }
-
-        // Chamada da função para preencher a tabela
-        preencherTabela();
+            } else {
+                alert('Erro ao carregar os dados dos doadores.');
+            }
+        };
+    
+        // Envio da solicitação
+        xhr.send();
     </script>
+    
 </body>
 </html>
