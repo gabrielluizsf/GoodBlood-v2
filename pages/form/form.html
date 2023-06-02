@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="./assets/js/script.js"></script>
+  <script src="../../assets/js/script.js"></script>
   <title>Formulário de Aptidão</title>
 </head>
 <body>
@@ -47,6 +47,42 @@
   </form>
 </div>
 
-  <script src="script.js"></script>
+  <script >
+    // Selecionar o formulário
+var form = document.getElementById('aptidao-form');
+
+// Adicionar um evento de envio ao formulário
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // Impedir o envio padrão do formulário
+
+  // Criar um objeto FormData para coletar os dados do formulário
+  var formData = new FormData(form);
+
+  // Criar uma solicitação XMLHttpRequest
+  var xhr = new XMLHttpRequest();
+
+  // Configurar a solicitação POST para o endpoint
+  xhr.open('POST', '../../api/v2/novo-doador.php', true);
+
+  // Definir o cabeçalho necessário para o envio do formulário
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+  // Função de callback para tratar a resposta
+  xhr.onload = function() {
+    if (xhr.status === 201) {
+      // Dados salvos com sucesso
+      alert('Dados salvos com sucesso.');
+      form.reset(); // Limpar o formulário
+    } else {
+      // Erro ao salvar os dados
+      alert('Erro ao salvar os dados: ' + xhr.responseText);
+    }
+  };
+
+  // Envio da solicitação com os dados do formulário
+  xhr.send(new URLSearchParams(formData));
+});
+
+  </script>
 </body>
 </html>
