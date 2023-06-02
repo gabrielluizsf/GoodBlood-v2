@@ -1,4 +1,4 @@
-2<?php
+<?php
 require_once 'conexao.php';
 
 // Verifica se a requisição é do tipo POST

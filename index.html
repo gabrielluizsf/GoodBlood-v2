@@ -11,49 +11,86 @@
   <script src="./assets/js/script.js"></script>
   <title>Good Blood</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
 
-    nav {
-      background-color: #333;
-      padding: 10px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 10px;
-      padding: 5px 10px;
-      border-radius: 5px;
-    }
+nav {
+  background-color: #f4f4f4;
+  padding: 10px;
+}
 
-    nav a:hover {
-      background-color: #555;
-    }
+nav a {
+  color: #FF0000;
+  text-decoration: none;
+  margin-right: 10px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
 
-    h1 {
-      text-align: center;
-      margin-top: 50px;
-      color: #333;
-    }
+nav a:hover {
+  background-color: #FFFFFF;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #333;
+}
+
+/* Estilos para telas menores, por exemplo, até 600px de largura */
+
+@media (max-width: 600px) {
+  .bannerLateral {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .title_p {
+    text-align: center;
+  }
+  
+  .title_p nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .title_p nav a {
+    margin: 5px;
+    float: none;
+  }
+  
+  .bannerLateral .texto {
+    width: 100%;
+  }
+  
+  .icone {
+    display: none;
+  }
+}
+
   </style>
 </head>
 <body>
-  <nav>
-    <a href="pages/login/login.html">Login</a>
-    <a href="pages/form/form.html">Formulário</a>
-    <a href="pages/sobre/sobre.html">Sobre Nós</a>
-  </nav>
-
   <div id="sessaoInicio" class="containerMeio">
     <div class="bannerLateral">
       <div class="title_p">
-        <p>Bem vindo!</p>
+        <nav>
+          <img src="./assets/img/logo_red.png" style="width: 7%; height: 7%;"></img>
+          <a href="pages/sobre/sobre.html" style="float: right;">Sobre Nós</a>
+          <a href="pages/form/form.html" style="float: right;">Formulário</a>
+          <a href="pages/login/login.html" style="float: right;" id="btLogin"><i class="fa fa-hospital-o"></i> Login</a>
+        </nav>
       </div>
+      
+      
       <div class="titulo_h4">
         <h1>Uma ação pode salvar vidas. Faça a diferença!</h1>
       </div>
@@ -70,6 +107,8 @@
     <div class="icone">
       <img src="./assets/img/doctor.svg" alt="">
     </div>
+
   </div>
+
 </body>
 </html>
