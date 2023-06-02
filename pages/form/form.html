@@ -3,16 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="./assets/js/script.js"></script>
   <title>Formulário de Aptidão</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <div class="title_p">
+  
   <nav>
-      <a href="../../index.html">Home</a>
-      <a href="../login/login.html">Login</a>
+      <a href="../../index.html">Inicio</a>
+      
       <a href="../sobre/sobre.html">Sobre Nós</a>
+      <a  id="btLogin" href="../login/login.html"><i class="fa fa-hospital-o"></i> Login</a>
   </nav>
-  <h1>Formulário de Aptidão</h1>
+
+  </div>
+  
+  <div class="forms" id="etapa1">
+    <img class="logo-img" src="../../assets/img/logo_red.png" alt="">
 
   <form id="aptidao-form">
     <label for="nome_completo">Nome Completo:</label>
@@ -28,10 +39,13 @@
     <input type="date" id="data" name="data" required>
     
     <label for="apto">Apto:</label>
-    <input type="checkbox" id="apto" name="apto">
-    
-    <button type="submit">Enviar</button>
+    <input type="checkbox" id="apto" name="apto" class="styled-checkbox">
+
+      <div class="btn-box">
+        <button type="submit" >Enviar   <i id="SobreBtnIcon" class="fa fa-heart" ></i></button>
+
   </form>
+</div>
 
   <script src="script.js"></script>
 </body>

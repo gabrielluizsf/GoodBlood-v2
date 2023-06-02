@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
-    <title>About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Sobre nós</title>
     <style>
+      :root {
+         --primaria: red;
+         --segunda: white;
+         --terceira: tomato;
+         --quarta: rgb(195, 13, 13);
+         --quinta: rgb(255, 115, 0);
+         --sexta: #6b6767;
+        }
+        #btLogin {
+          background: linear-gradient(to right, var(--quinta), var(--primaria), var(--quarta));
+          border-radius: 30px;
+          border: 0;
+          outline: none;
+          color: #fff;
+          cursor: pointer;
+          width: 100px;
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -50,58 +69,81 @@
             color: #555;
             line-height: 1.5;
         }
+
         nav {
-        background-color: #333;
-        padding: 10px;
+            background-color: #f4f4f4;
+            padding: 10px;
         }
 
         nav a {
-        color: #fff;
-        text-decoration: none;
-        margin-right: 10px;
-        padding: 5px 10px;
-        border-radius: 5px;
+            color: #FF0000;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
         }
 
         nav a:hover {
-        background-color: #555;
+            background-color: #FF0000;
+            color: #fff;
+        }
+        
+
+        /* Estilos responsivos */
+        @media (max-width: 768px) {
+            .containerSobre {
+                flex-direction: column;
+            }
+
+            .sobreImagem,
+            .sobreTexto {
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .sobreImagem img {
+                width: 200px;
+                height: 200px;
+            }
+            
         }
     </style>
 </head>
 <body>
- 
+
 <div id="BlocoSobre" class="containerSobre">
-  
+
     <div class="sobreImagem">
-      <img src="../../assets/img/dev.svg" alt="">
+        <img src="../../assets/img/dev.svg" alt="">
     </div>
     <div class="sobreTexto">
-      <div class="sobreSubDiv">
+        <div class="sobreSubDiv">
 
-        <div class="sobreTitulo">
-          <h1>"Sobre nós!"</h1>
+            <div class="sobreTitulo">
+                <h1>"Sobre nós!"</h1>
+            </div>
+            <div class="sobreDivisor">
+                <div id="divisor"></div>
+            </div>
+            <div class="SobreSubTexto">
+                <p>
+                    GoodBlood ou Sangue Bom(Traduzido), é uma plataforma feito para as pessoas que desejam doar sangue. Com
+                    um
+                    formulário simples
+                    e objetivo, informamos a você doador, se você está apto ou não para doação.
+                </p><br>
+                <p>A doação de sangue é um gesto de amor e bondade, que pode salvar vidas. A good blood tem como propósito
+                    solidarizar a população para doação de sangue de forma fácil e segura. O sangue é fundamental e sem ele
+                    é impossível viver, doe sangue, faça sua parte!</p>
+            </div>
         </div>
-        <div class="sobreDivisor">
-          <div id="divisor"></div>
-        </div>
-        <div class="SobreSubTexto">
-          <p>
-            GoodBlood ou Sangue Bom(Traduzido), é uma plataforma feito para as pessoas que desejam doar sangue. Com
-            um
-            formulário simples
-            e objetivo, informamos a você doador, se você está apto ou não para doação.
-          </p><br>
-          <p>A doação de sangue é um gesto de amor e bondade, que pode salvar vidas. A good blood tem como propósito
-            solidarizar a população para doação de sangue de forma fácil e segura. O sangue é fundamental e sem ele
-            é impossível viver, doe sangue, faça sua parte!</p>
-        </div>
-      </div>
-      <nav>
-        <a href="../../index.html">Home</a>
-        <a href="../form/form.html">Formulário</a>
-        <a href="../sobre/sobre.html">Sobre Nós</a>
-      </nav>
+        <nav>
+            <a href="../../index.html">Início</a>
+            <a href="../form/form.html">Doar</a>
+            <a  id="btLogin" href="../login/login.html"><i class="fa fa-hospital-o"></i> Login</a>
+        </nav>
     </div>
-  </div>
+</div>
 </body>
 </html>

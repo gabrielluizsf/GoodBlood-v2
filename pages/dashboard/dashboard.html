@@ -5,26 +5,54 @@
     <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
     <title>Dashboard</title>
     <style>
+        :root {
+            --primaria: red;
+            --segunda: white;
+            --terceira: tomato;
+            --quarta: rgb(195, 13, 13);
+            --quinta: rgb(255, 115, 0);
+            --sexta: #6b6767;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--segunda);
+        }
+        
         table {
             border-collapse: collapse;
             width: 100%;
         }
-
+        
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
         }
-
+        
         th {
-            background-color: #f2f2f2;
+            background-color:#FF0000;
+            color: var(--segunda);
         }
+        
+        td {
+            background-color: var(--quinta);
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--primaria);
+        }
+        
         nav {
-            background-color: #333;
+            background-color: #fff;
             padding: 10px;
         }
-
+        
         nav a {
-            color: #fff;
+            color: #FF0000;
+            font-weight: bold;
             text-decoration: none;
             margin-right: 10px;
             padding: 5px 10px;
@@ -32,16 +60,15 @@
         }
 
         nav a:hover {
-            background-color: #555;
+            background-color: #FF0000;
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <nav>
-        <a href="../../index.html">Home</a>
-        <a href="../form/form.html">Formulário</a>
-        <a href="../sobre/sobre.html">Sobre Nós</a>
-      </nav>
+        <a href="../../index.html">Sair</a>
+    </nav>
     <h1>Dados dos Doadores</h1>
    
     <table id="doador-table">

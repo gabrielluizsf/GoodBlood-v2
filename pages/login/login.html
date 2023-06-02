@@ -4,15 +4,81 @@
   <meta charset="UTF-8">
   <link rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+
+    nav {
+      background-color: #f4f4f4;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #FF0000;
+      font-weight: bold;
+      text-decoration: none;
+      margin-right: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      background-color: #FF0000;
+      color: #fff;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 4px solid #FFF;
+      border-radius: 5px;
+      background-color: #f4f4f4;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #FF0000;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #FF0000;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #fff;
+      color: #FF0000;
+    }
+
+    .logo-img {
+      display: block;
+      margin: 0 auto;
+      max-width: 200px;
+    }
+  </style>
 </head>
 <body>
   <nav>
-    <a href="../../index.html">Home</a>
-    <a href="../form/form.html">Formulário</a>
+    <a href="../../index.html">Início</a>
+    <a href="../form/form.html">Doar</a>
     <a href="../sobre/sobre.html">Sobre Nós</a>
   </nav>
-  <h1>Login</h1>
+  <img class="logo-img" src="../../assets/img/logo_red.png" alt="">
   
   <form id="login-form">
     <input type="text" id="username" placeholder="Usuário">
