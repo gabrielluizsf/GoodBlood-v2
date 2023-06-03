@@ -122,8 +122,16 @@
                         row.appendChild(cidadeCell);
     
                         var dataCell = document.createElement('td');
-                        dataCell.textContent = doador.data;
+                        var dataNascimento = new Date(doador.data);
+                        var dataNascimentoLocal = new Date(dataNascimento.getTime() + dataNascimento.getTimezoneOffset() * 60000);
+                        var dia = ("0" + dataNascimentoLocal.getUTCDate()).slice(-2);
+                        var mes = ("0" + (dataNascimentoLocal.getUTCMonth() + 1)).slice(-2);
+                        var ano = dataNascimentoLocal.getUTCFullYear();
+                        dataCell.textContent = dia + "/" + mes + "/" + ano;
                         row.appendChild(dataCell);
+
+
+
     
                         var aptoCell = document.createElement('td');
                         aptoCell.textContent = doador.apto;
